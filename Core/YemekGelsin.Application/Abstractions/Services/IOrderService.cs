@@ -1,6 +1,8 @@
+using YemekGelsin.Domain.Entities;
+
 namespace YemekGelsin.Application.Abstractions.Services;
 
-public interface IOrderService
+public interface IOrderService : IGenericService<Order>
 {
     
 }

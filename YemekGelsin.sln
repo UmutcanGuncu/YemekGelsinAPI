@@ -1,8 +1,53 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{DB13D17D-91AA-438B-BBA2-62B48D16FF5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infastructure", "Infastructure", "{6F609C3D-74C8-41A8-A356-01DA9607408E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{6FE2E607-8772-4B90-84FA-24EFEEFCE41E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YemekGelsin.Domain", "Core\YemekGelsin.Domain\YemekGelsin.Domain.csproj", "{11FBD599-03D0-4CC9-A6ED-1AF7D338A75E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YemekGelsin.Application", "Core\YemekGelsin.Application\YemekGelsin.Application.csproj", "{635BAD19-5A02-40E9-A739-0074EB405D32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YemekGelsin.Infastructure", "Infastructure\YemekGelsin.Infastructure\YemekGelsin.Infastructure.csproj", "{CBF79533-520C-4373-AB42-4B5CDD2EA96C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YemekGelsin.Persistence", "Infastructure\YemekGelsin.Persistence\YemekGelsin.Persistence.csproj", "{926C5ACD-4A19-4652-9E85-47DCC08DA2D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YemekGelsin.WebAPI", "Presentation\YemekGelsin.WebAPI\YemekGelsin.WebAPI.csproj", "{5609326D-4724-4369-BD08-881575817FF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{11FBD599-03D0-4CC9-A6ED-1AF7D338A75E} = {DB13D17D-91AA-438B-BBA2-62B48D16FF5B}
+		{635BAD19-5A02-40E9-A739-0074EB405D32} = {DB13D17D-91AA-438B-BBA2-62B48D16FF5B}
+		{CBF79533-520C-4373-AB42-4B5CDD2EA96C} = {6F609C3D-74C8-41A8-A356-01DA9607408E}
+		{926C5ACD-4A19-4652-9E85-47DCC08DA2D3} = {6F609C3D-74C8-41A8-A356-01DA9607408E}
+		{5609326D-4724-4369-BD08-881575817FF5} = {6FE2E607-8772-4B90-84FA-24EFEEFCE41E}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11FBD599-03D0-4CC9-A6ED-1AF7D338A75E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11FBD599-03D0-4CC9-A6ED-1AF7D338A75E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11FBD599-03D0-4CC9-A6ED-1AF7D338A75E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11FBD599-03D0-4CC9-A6ED-1AF7D338A75E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635BAD19-5A02-40E9-A739-0074EB405D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{635BAD19-5A02-40E9-A739-0074EB405D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{635BAD19-5A02-40E9-A739-0074EB405D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{635BAD19-5A02-40E9-A739-0074EB405D32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF79533-520C-4373-AB42-4B5CDD2EA96C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF79533-520C-4373-AB42-4B5CDD2EA96C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF79533-520C-4373-AB42-4B5CDD2EA96C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF79533-520C-4373-AB42-4B5CDD2EA96C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{926C5ACD-4A19-4652-9E85-47DCC08DA2D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{926C5ACD-4A19-4652-9E85-47DCC08DA2D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{926C5ACD-4A19-4652-9E85-47DCC08DA2D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{926C5ACD-4A19-4652-9E85-47DCC08DA2D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5609326D-4724-4369-BD08-881575817FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5609326D-4724-4369-BD08-881575817FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5609326D-4724-4369-BD08-881575817FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5609326D-4724-4369-BD08-881575817FF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
