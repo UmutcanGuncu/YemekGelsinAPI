@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using YemekGelsin.Application.Abstractions.Services;
 using YemekGelsin.Domain.Entities;
 using YemekGelsin.Persistence.Contexts;
+using YemekGelsin.Persistence.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddOpenApi();
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddScoped(typeof(IGenericService<>),typeof(GenericService<>));
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IRestaurantService, RestaurantService>();
 builder.Services.AddDbContext<YemekGelsinDbContext>(cfg =>
 {
     cfg.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
