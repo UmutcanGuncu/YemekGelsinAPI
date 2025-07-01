@@ -1,0 +1,6 @@
+namespace YemekGelsin.Domain.Entities;
+
+public class AppRole
+{
+    
+}
