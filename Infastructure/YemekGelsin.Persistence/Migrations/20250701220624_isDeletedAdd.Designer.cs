@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using YemekGelsin.Persistence.Contexts;
@@ -11,9 +12,11 @@ using YemekGelsin.Persistence.Contexts;
 namespace YemekGelsin.Persistence.Migrations
 {
     [DbContext(typeof(YemekGelsinDbContext))]
-    partial class YemekGelsinDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250701220624_isDeletedAdd")]
+    partial class isDeletedAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,12 +165,15 @@ namespace YemekGelsin.Persistence.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Age")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -175,6 +181,7 @@ namespace YemekGelsin.Persistence.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("District")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
@@ -185,12 +192,14 @@ namespace YemekGelsin.Persistence.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int?>("Gender")
+                    b.Property<int>("Gender")
                         .HasColumnType("integer");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("LockoutEnabled")

@@ -6,4 +6,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\Core\YemekGelsin.Application\YemekGelsin.Application.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.6" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.12.1" />
+    </ItemGroup>
+
 </Project>
