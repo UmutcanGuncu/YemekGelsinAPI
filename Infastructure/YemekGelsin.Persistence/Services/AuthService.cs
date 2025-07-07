@@ -112,6 +112,19 @@ public class AuthService  : IAuthService
                 var identityResult  =  await _userManager.CreateAsync(user);
                 result = identityResult.Succeeded;
             }
+            else
+            {
+                await _signInManager.SignInAsync(user, false);
+                var token = await _tokenHandler.CreateAccessToken(user.Id.ToString());
+                return new()
+                {
+                    Succeeded = true,
+                    Message = "User successfully logged in",
+                    Token = token,
+                    UserId = user.Id.ToString(),
+                };
+            }
+            
         }
 
         if (result)

@@ -1,4 +1,5 @@
 using YemekGelsin.Domain.Entities.Common;
+using YemekGelsin.Domain.Enums;
 
 namespace YemekGelsin.Domain.Entities;
 
@@ -11,4 +12,5 @@ public class Restaurant : BaseEntity
     public string District { get; set; }
     public AppUser AppUser { get; set; }
     public Guid AppUserId { get; set; } // restoran sahibinin tutulması
+    public RestaurantCategory Category { get; set; }
 }

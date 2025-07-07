@@ -15,7 +15,9 @@ public class GenericService<T>(YemekGelsinDbContext context) : IGenericService<T
 
     public async Task<bool> RemoveAsync(Guid id)
     {
-        var entity = await context.Set<T>().FirstAsync(x => x.Id == id);
+        var entity = await context.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
+        if (entity == null) // bu id'ye sahip kullanıcı olup olmadığını denetlemek istedim burda
+            return false;
         entity.IsDeleted = true;
         context.Update(entity);
         await context.SaveChangesAsync();
@@ -29,8 +31,10 @@ public class GenericService<T>(YemekGelsinDbContext context) : IGenericService<T
         return true;
     }
 
-    public Task<bool> UpdateAsync(T entity)
+    public async Task<bool> UpdateAsync(T entity)
     {
-        throw new NotImplementedException();
+        var result = context.Set<T>().Update(entity);
+        await context.SaveChangesAsync();
+        return true;
     }
 }

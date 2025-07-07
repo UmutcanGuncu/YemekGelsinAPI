@@ -16,22 +16,9 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="CQRS\Commands\Comments\" />
-      <Folder Include="CQRS\Commands\Orders\" />
-      <Folder Include="CQRS\Commands\Products\" />
-      <Folder Include="CQRS\Commands\Restaurants\" />
-      <Folder Include="CQRS\Handlers\Comments\" />
-      <Folder Include="CQRS\Handlers\Orders\" />
-      <Folder Include="CQRS\Handlers\Products\" />
-      <Folder Include="CQRS\Handlers\Restaurants\" />
       <Folder Include="CQRS\Queries\Comments\" />
       <Folder Include="CQRS\Queries\Orders\" />
       <Folder Include="CQRS\Queries\Products\" />
-      <Folder Include="CQRS\Queries\Restaurants\" />
-      <Folder Include="CQRS\Results\Comments\" />
-      <Folder Include="CQRS\Results\Orders\" />
-      <Folder Include="CQRS\Results\Products\" />
-      <Folder Include="CQRS\Results\Restaurants\" />
     </ItemGroup>
 
 </Project>

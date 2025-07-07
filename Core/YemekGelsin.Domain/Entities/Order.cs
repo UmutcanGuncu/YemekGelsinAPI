@@ -10,5 +10,5 @@ public class Order : BaseEntity
     public AppUser User { get; set; }
     public Guid UserId { get; set; }
     public OrderStatus Status { get; set; }
-    
+    public ICollection<Product> Products { get; set; }
 }

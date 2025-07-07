@@ -1,8 +1,10 @@
 using AutoMapper;
 using YemekGelsin.Application.CQRS.Commands.Auths;
+using YemekGelsin.Application.CQRS.Commands.Restaurants;
 using YemekGelsin.Application.CQRS.Results.Auths;
 using YemekGelsin.Application.DTOs.AuthDtos;
 using YemekGelsin.Domain.Entities;
+using YemekGelsin.Domain.Enums;
 
 namespace YemekGelsin.Application.Profiles;
 
@@ -19,5 +21,11 @@ public class MappingProfile : Profile
         CreateMap<LoginResultDTO, LoginCommandResponse>();
         CreateMap<GoogleLoginCommandRequest, GoogleLoginDTO>();
         CreateMap<GoogleLoginResultDTO, GoogleLoginCommandResponse>();
+        CreateMap<CreateRestaurantCommandRequest,Restaurant>()
+            .ForMember(dest=> dest.Category
+            ,opt => opt.MapFrom(src => (RestaurantCategory)src.Category));
+        CreateMap<UpdateRestaurantCommandRequest,Restaurant>()
+            .ForMember(dest=> dest.Category
+                ,opt => opt.MapFrom(src => (RestaurantCategory)src.Category));
     }
 }
