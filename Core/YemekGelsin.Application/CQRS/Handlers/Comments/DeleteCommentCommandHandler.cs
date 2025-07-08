@@ -7,8 +7,14 @@ namespace YemekGelsin.Application.CQRS.Handlers.Comments;
 
 public class DeleteCommentCommandHandler(ICommentService commentService) :  IRequestHandler<DeleteCommentCommandRequest, DeleteCommentCommandResponse>
 {
-    public Task<DeleteCommentCommandResponse> Handle(DeleteCommentCommandRequest request, CancellationToken cancellationToken)
+    public async Task<DeleteCommentCommandResponse> Handle(DeleteCommentCommandRequest request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var result = await commentService.RemoveAsync(request.Id);
+        string message = result == true ? "Yorum Başarıyla Silindi" : "Yorum Silinirken Hata Meydana Geldi";
+        return new()
+        {
+            Successed = result,
+            Message = message
+        };
     }
 }

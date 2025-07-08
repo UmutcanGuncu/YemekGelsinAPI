@@ -10,6 +10,7 @@ public class YemekGelsinDbContext : IdentityDbContext<AppUser, AppRole, Guid>
     public YemekGelsinDbContext(DbContextOptions options) : base(options) { }
     public DbSet<Order> Orders { get; set; }
     public DbSet<Product> Products { get; set; }
+    public DbSet<OrderProduct> OrderProducts { get; set; }
     public DbSet<Restaurant> Restaurants { get; set; }
     public DbSet<Comment> Comments { get; set; }
 
@@ -51,5 +52,23 @@ public class YemekGelsinDbContext : IdentityDbContext<AppUser, AppRole, Guid>
             }
         });
         return base.SaveChanges();
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.Entity<OrderProduct>()
+            .HasKey(op => new { op.OrderId, op.ProductId });
+
+        builder.Entity<OrderProduct>()
+            .HasOne(op => op.Order)
+            .WithMany(o => o.OrderProducts)
+            .HasForeignKey(op => op.OrderId);
+
+        builder.Entity<OrderProduct>()
+            .HasOne(op => op.Product)
+            .WithMany(p => p.OrderProducts)
+            .HasForeignKey(op => op.ProductId);
+
+        base.OnModelCreating(builder);
     }
 }

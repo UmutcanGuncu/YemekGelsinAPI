@@ -7,8 +7,14 @@ namespace YemekGelsin.Application.CQRS.Handlers.Products;
 
 public class DeleteProductCommandHandler(IProductService productService): IRequestHandler<DeleteProductCommandRequest, DeleteProductCommandResponse>
 {
-    public Task<DeleteProductCommandResponse> Handle(DeleteProductCommandRequest request, CancellationToken cancellationToken)
+    public async Task<DeleteProductCommandResponse> Handle(DeleteProductCommandRequest request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var result = await productService.RemoveAsync(request.Id);
+        string message = result == true ? "Kayıt Başarıyla Silindi" : "Kayıt Silme İşlemi Başarısız Oldu";
+        return new()
+        {
+            Successed = result,
+            Message = message
+        };
     }
 }

@@ -9,5 +9,5 @@ public class Product : BaseEntity
     public bool IsActive { get; set; }
     public Restaurant Restaurant { get; set; }
     public Guid RestaurantId { get; set; }
-    public ICollection<Order> Orders { get; set; }
+    public ICollection<OrderProduct> OrderProducts { get; set; }
 }

@@ -7,4 +7,11 @@ public class CreateOrderCommandRequest : IRequest<CreateOrderCommandResponse>
 {
     public Guid RestaurantId { get; set; }
     public Guid UserId { get; set; }
+    public List<ProductViewModel> Products { get; set; }
+}
+public class ProductViewModel
+{
+    public Guid ProductId { get; set; }
+    public int Quantity { get; set; }
+   
 }
