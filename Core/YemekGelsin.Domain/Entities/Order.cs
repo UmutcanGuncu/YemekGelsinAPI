@@ -11,4 +11,5 @@ public class Order : BaseEntity
     public Guid UserId { get; set; }
     public OrderStatus Status { get; set; }
     public ICollection<OrderProduct> OrderProducts { get; set; }
+    public decimal TotalPrice { get; set; }
 }

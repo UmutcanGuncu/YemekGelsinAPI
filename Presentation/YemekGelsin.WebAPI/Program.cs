@@ -1,9 +1,11 @@
 using System.Text;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Shared;
 using YemekGelsin.Application.Abstractions.Services;
 using YemekGelsin.Application.Abstractions.Token;
 using YemekGelsin.Application.CQRS.Handlers.Auths;
@@ -12,10 +14,24 @@ using YemekGelsin.Domain.Entities;
 using YemekGelsin.Infastructure.Services.Token;
 using YemekGelsin.Persistence.Contexts;
 using YemekGelsin.Persistence.Services;
+using YemekGelsin.WebAPI.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+builder.Services.AddMassTransit(configure =>
+{
+    configure.AddConsumer<PaymentFailedEventConsumer>();
+    configure.AddConsumer<PaymentSuccessedEventConsumer>();
+    configure.UsingRabbitMq((context, _cfg) =>
+    {
+        _cfg.Host(builder.Configuration["RabbitMQ"]);
+        _cfg.ReceiveEndpoint(RabbitMQSettings.Order_PaymentSucceededEventQueue, e=>
+            e.ConfigureConsumer<PaymentSuccessedEventConsumer>(context));
+        _cfg.ReceiveEndpoint(RabbitMQSettings.Order_PaymentFailedEventQueue, e=>
+            e.ConfigureConsumer<PaymentFailedEventConsumer>(context));
+    });
+});
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()

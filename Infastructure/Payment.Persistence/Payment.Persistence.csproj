@@ -7,26 +7,22 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Google.Apis.Auth" Version="1.70.0" />
       <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.1" />
-      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.7" />
-      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.6" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.7">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.6">
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.7">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Core\YemekGelsin.Application\YemekGelsin.Application.csproj" />
+      <ProjectReference Include="..\..\Core\Payment.Application\Payment.Application.csproj" />
+      <ProjectReference Include="..\..\Core\Payment.Domain\Payment.Domain.csproj" />
       <ProjectReference Include="..\..\Core\YemekGelsin.Domain\YemekGelsin.Domain.csproj" />
-      <ProjectReference Include="..\..\Shared\Shared.csproj" />
     </ItemGroup>
 
 </Project>
